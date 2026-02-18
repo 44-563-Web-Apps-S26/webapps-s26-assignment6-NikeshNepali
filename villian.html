@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Villians</title>
+ </head>
+<body>
+
+<h2>Villians By Nikesh Nepali</h2>
+
+<form>
+    <label for="form_value">Funny Man </label>
+    <input type ="password" id="form_value" name="form_value" value="Joker"> <br>
+
+    <label for="guess_value">Guess the Villian </label>
+    <input type ="text" id="guess_value" name="guess_value" autofocus> <br>
+
+    <input type="button" onclick="checkVillian()" value="Check The Guess.">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var caught = 0;
+gotAway = 0;
+function checkVillian (){
+    console.log("Checking villian guess")
+    let correct_guess = document.getElementById("form_value").value
+    let guessed_value = document.getElementById("guess_value").value
+    
+    out = document.getElementById("result")
+    if(correct_guess === guessed_value){
+        caught++;
+        out.innerHTML = "You caught them "+caught+" times"
+        alert("You caught them "+caught+" times")
+    } else {
+        gotAway++;
+        out.innerHTML = "They got away "+gotAway+" times"
+        alert("Maybe Next Time: "+gotAway)
+    }
+}
+</script>
+
+</body>
+</html> 
