@@ -20,6 +20,10 @@
 
 <p id="result">This text will be replaced </p>
 
+<div class="container">
+    <img src="Eucalyptus.png" width="150" height="150" onclick="updatePic()">
+</div>
+
 <script> 
 var caught = 0;
 gotAway = 0;
@@ -39,6 +43,24 @@ function checkVillian (){
         alert("Maybe Next Time: "+gotAway)
     }
 }
+
+var usePic = 1;
+    function updatePic(){
+        switch (usePic) {
+            case 1:
+                document.querySelector(".container img").src = "Eucalyptus.png";
+                break;
+            case 2:
+                document.querySelector(".container img").src = "Imli.png";
+                break;
+            default:
+                document.querySelector(".container img").src = "Pine.png";
+        }
+        usePic++;
+        if(usePic > 3){
+            usePic = 1;
+        }
+    }
 </script>
 
 </body>
