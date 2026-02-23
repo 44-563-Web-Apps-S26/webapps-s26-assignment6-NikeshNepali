@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> Tax table </title>
+ </head>
+<body>
+
+<h2>Tax Table Computation Nikesh Nepali</h2>
+
+<form>
+    <label for="income">Enter Income: </label>
+    <input type ="number" id="income" name="amount_of_income" value=5000> <br>
+
+    <label for="base_rate">Enter the Base tax Rate: </label>
+    <input type ="number" id="base_rate" name="base_rate" value=0.05> <br>
+
+    <label for="cutOff">Enter the Cut off: </label>
+    <input type="number" id="cutOff" name="cutOff" value=7500> <br>
+
+    <label for="extRate">Enter the extended rate: </label>
+    <input type="number" id="extRate" name="extRate" value=0.15>
+
+    <input type="button" onclick="doTax()" value="Show Tax table">
+</form>
+
+
+<p id="result">Result </p>
+
+<script> 
+
+function doTax (){
+    income = document.getElementById("income").value
+    base_rate = document.getElementById("base_rate").value
+    cutOff = document.getElementById("cutOff").value
+    ext_rate = document.getElementById("extRate").value
+    let taxTable = "";
+
+    result = document.getElementById("result");
+    
+    let incomeLevel = 0;
+    for(let i = 1; i <= 5; i++){
+        incomeLevel = i * income;
+        if(incomeLevel > cutOff){
+            calculated = (cutOff * base_rate ) + ((incomeLevel - cutOff) * ext_rate );
+        }else{
+            calculated = incomeLevel * base_rate;
+        }
+        taxTable += `incomeLevel ${incomeLevel} tax is ${calculated} `
+    }
+    result.innerHTML = "Tax table " + taxTable;
+}
+</script>
+
+</body>
+</html> 
