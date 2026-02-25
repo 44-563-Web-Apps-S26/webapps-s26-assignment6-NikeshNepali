@@ -2,47 +2,66 @@
 <html>
  <head>
     <title>Villians</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" 
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
  </head>
 <body>
 
-<h2>Villians By Nikesh Nepali</h2>
+<h2 class="text-success bg-warning text-center">Villians By Nikesh Nepali</h2>
 
-<form>
-    <label for="form_value">Funny Man </label>
+<form class="row g-3 align-items-center">
+    <label for="form_value" class="form-label fs-5">Funny Man </label>
     <input type ="password" id="form_value" name="form_value" value="Joker"> <br>
 
-    <label for="guess_value">Guess the Villian </label>
+    <label for="guess_value" class="form-label fs-5">Guess the Villian </label>
     <input type ="text" id="guess_value" name="guess_value" autofocus> <br>
 
-    <input type="button" onclick="checkVillian()" value="Check The Guess.">
+    <input type="button" onclick="checkVillian()" class="btn btn-primary btn-lg mt-3 px-4" value="Check The Guess.">
 </form>
 
-
-<p id="result">This text will be replaced </p>
-
-<div class="container">
-    <img src="Eucalyptus.png" width="150" height="150" onclick="updatePic()">
+<div class="card shadow-sm p-3 text-center">
+    <p id="right" class="text-success fw-bold fs-5 mb-2">This is right guess. </p>
+    <p id="wrong" class="text-danger fw-bold fs-5 mb-0">This is wrong guess.</p>
 </div>
 
+
+<div class="container">
+    <img src="Eucalyptus.png" class="img-fluid rounded hover-shadow"
+    width="150" height="150" onclick="updatePic()">
+    <p class="mt-2 text-muted">Click image to change</p>
+</div>
+
+<a href="tax.html" class="btn btn-outline-primary me-2 px-4">Tax</a>
+<a href="trip.html" class="btn btn-outline-success px-4">Trip</a>
 <script> 
 var caught = 0;
-gotAway = 0;
+var gotAway = 0;
 function checkVillian (){
     console.log("Checking villian guess")
     let correct_guess = document.getElementById("form_value").value
     let guessed_value = document.getElementById("guess_value").value
     
-    out = document.getElementById("result")
+    out = document.getElementById("right")
+    wrng = document.getElementById("wrong")
     if(correct_guess === guessed_value){
         caught++;
         out.innerHTML = "You caught them "+caught+" times"
-        alert("You caught them "+caught+" times")
     } else {
         gotAway++;
-        out.innerHTML = "They got away "+gotAway+" times"
-        alert("Maybe Next Time: "+gotAway)
+        wrng.innerHTML = "They got away "+gotAway+" times"
+    }
+    if(gotAway > 10){
+        alert("Sorry, Too many Wrong Guesses.");
+        gotAway = 0;
     }
 }
+
+
+
 
 var usePic = 1;
     function updatePic(){
