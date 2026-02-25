@@ -26,6 +26,21 @@
 
 <p id="result">Result </p>
 
+<form>
+        <input type="radio" id="rg1_power" value="exponent" name="math"  onclick="chooseOp()" >
+        <label for="rg1_Power">Power</label></br>
+      
+        <input type="radio" id="rg1_add" 
+           value="add" name ="math" onclick="chooseOp()">
+        <label for="rg1_add">Add</label></br>
+      
+        <input type="radio" id="rg1_mod"   
+           value="mod" name="math" onclick="chooseOp()">
+        <label for="rg1_mod">Mod</label></br>
+      </form>
+
+      <p id="Rg_btn">abc</p>
+
 <script> 
 
 function doTax (){
@@ -48,6 +63,27 @@ function doTax (){
         taxTable += `incomeLevel ${incomeLevel} tax is ${calculated} `
     }
     result.innerHTML = "Tax table " + taxTable;
+}
+
+function chooseOp(){
+    let income = Number(document.getElementById("income").value);
+    let base_rate = Number(document.getElementById("base_rate").value);
+    power = document.getElementById("rg1_power")
+    add = document.getElementById("rg1_add")
+    mod = document.getElementById("rg1_mod")
+
+    res = document.getElementById("Rg_btn");
+    if(power.checked){
+        out = Math.pow(income,base_rate);
+        res.innerHTML = `${income} power ${base_rate} is: ${out}`
+    }else if(add.checked){
+        out = income + base_rate;
+        res.innerHTML = `${income} add ${base_rate} is: ${out}`
+    }else{
+        out = income % base_rate;
+        res.innerHTML = `${income} mod ${base_rate} is: ${out}`
+    }
+
 }
 </script>
 
