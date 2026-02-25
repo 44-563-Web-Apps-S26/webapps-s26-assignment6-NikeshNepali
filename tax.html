@@ -12,44 +12,46 @@
  
 <body>
 
-<h2>Tax Table Computation Nikesh Nepali</h2>
+<h2 class="fw-bold text-success">Tax Table Computation Nikesh Nepali</h2>
 
 <form>
-    <label for="income">Enter Income: </label>
-    <input type ="number" id="income" name="amount_of_income" value=5000> <br>
+    <label for="income" class="form-label">Enter Income: </label>
+    <input class="form-control"  type ="number" id="income" name="amount_of_income" value=5000> <br>
 
-    <label for="base_rate">Enter the Base tax Rate: </label>
-    <input type ="number" id="base_rate" name="base_rate" value=0.05> <br>
+    <label for="base_rate" class="form-label">Enter the Base tax Rate: </label>
+    <input class="form-control"  type ="number" id="base_rate" name="base_rate" value=0.05> <br>
 
-    <label for="cutOff">Enter the Cut off: </label>
-    <input type="number" id="cutOff" name="cutOff" value=7500> <br>
+    <label for="cutOff" class="form-label">Enter the Cut off: </label>
+    <input class="form-control"  type="number" id="cutOff" name="cutOff" value=7500> <br>
 
-    <label for="extRate">Enter the extended rate: </label>
-    <input type="number" id="extRate" name="extRate" value=0.15>
+    <label for="extRate" class="form-label">Enter the extended rate: </label>
+    <input class="form-control"  type="number" id="extRate" name="extRate" value=0.15>
 
-    <input type="button" onclick="doTax()" value="Show Tax table">
+    <input class="btn btn-primary px-4" type="button" onclick="doTax()" value="Show Tax table">
 </form>
 
 
-<p id="result">Result </p>
+<p id="result" class="alert alert-info mt-3">Result </p>
 
 <form>
-        <input type="radio" id="rg1_power" value="exponent" name="math"  onclick="chooseOp()" >
-        <label for="rg1_Power">Power</label></br>
+    <h5 class="card-title mb-3">Choose Operation</h5>
+
+        <input class="form-check-input" type="radio" id="rg1_power" value="exponent" name="math"  onclick="chooseOp()" >
+        <label class="form-check-label" for="rg1_Power">Power</label></br>
       
-        <input type="radio" id="rg1_add" 
+        <input class="form-check-input" type="radio" id="rg1_add" 
            value="add" name ="math" onclick="chooseOp()">
-        <label for="rg1_add">Add</label></br>
+        <label class="form-check-label" for="rg1_add">Add</label></br>
       
-        <input type="radio" id="rg1_mod"   
+        <input class="form-check-input" type="radio" id="rg1_mod"   
            value="mod" name="math" onclick="chooseOp()">
-        <label for="rg1_mod">Mod</label></br>
+        <label class="form-check-label" for="rg1_mod">Mod</label></br>
 </form>
 
-      <p id="Rg_btn">abc</p>
+      <p id="Rg_btn" class="alert alert-secondary">abc</p>
 
-      <a href="trip.html">Trip</a>
-      <a href="villian.html">Villian</a>
+      <a href="trip.html" class="btn btn-outline-success me-2 px-4">Trip</a>
+      <a href="villian.html" class="btn btn-outline-primary px-4">Villian</a>
 
 <script> 
 
